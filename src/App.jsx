@@ -310,7 +310,7 @@ function App() {
           ...prevState,
           relay1: sensorDHTData.temperature > 20,
           relay3: sensorDHTData.humidity < 40,
-          relay4: distance < 15,
+          relay4: distance < 15 && distance >= 0,
         }));
       }
 
@@ -405,7 +405,7 @@ function App() {
               <Unit>cm</Unit>
             </SensorValue>
             <InfoText>
-              {distance < 15 ? "Object very close" : distance < 50 ? "Object nearby" : "Clear"}
+              {distance < 15 && distance >= 0 ? "Object very close" : distance < 50 && distance >= 15 ? "Object nearby" : "Object not in detection range"}
             </InfoText>
           </SensorCard>
 
