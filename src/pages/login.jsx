@@ -120,7 +120,7 @@ function LoginPage() {
   }, [navigate]);
 
   const handleLogin = () => {
-    if (username === "tardshyamsunder" === "iotpassword") {
+    if (username === "tardshyamsunder" && password === "iotpassword") {
       localStorage.setItem("isLoggedIn", "true");
       navigate("/");
     } else {
