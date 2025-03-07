@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Dashboard from "./pages/dashboard";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/login";
-import PageNotFound from "./components/PageNotFound";
 import PropTypes from 'prop-types';
 
 // Main container
@@ -36,7 +35,6 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
     </Container>
