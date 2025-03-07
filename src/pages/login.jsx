@@ -120,7 +120,7 @@ function LoginPage() {
   }, [navigate]);
 
   const handleLogin = () => {
-    if (username === import.meta.env.VITE_USERNAME && password === import.meta.env.VITE_PASSWORD) {
+    if (username === "tardshyamsunder" === "iotpassword") {
       localStorage.setItem("isLoggedIn", "true");
       navigate("/");
     } else {
