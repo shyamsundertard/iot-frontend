@@ -115,14 +115,14 @@ function LoginPage() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [navigate]);
 
   const handleLogin = () => {
     if (username === "tardshyamsunder" && password === "iotpassword") {
       localStorage.setItem("isLoggedIn", "true");
-      navigate("/");
+      navigate("/dashboard");
     } else {
       setError("Incorrect username or password");
     }
