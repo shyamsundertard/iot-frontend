@@ -194,7 +194,7 @@ function Dashboard() {
   const [sensorDHTHistory, setSensorDHTHistory] = useState([]);
   const [distance, setDistance] = useState(100);
   const [manualControl, setManualControl] = useState(false);
-  const [airQuality, setAirQuality] = useState(0);
+  // const [airQuality, setAirQuality] = useState(0);
   const [alerts, setAlerts] = useState([]);
 
   const navigate = useNavigate();
@@ -217,14 +217,14 @@ function Dashboard() {
       setPirStatus((await pirRes.json()).motionDetected);
       setRelayStatus(await relayRes.json());
       setDistance((await distanceRes.json()).distance);
-      setAirQuality(0);
+      // setAirQuality(0);
       // setAlerts((await alertsRes.json()).filter(alert => !alert.resolved));
 
       if (!manualControl) {
         setRelayStatus((prevState) => ({
           ...prevState,
-          relay1: sensorDHTData.temperature > 20,
-          relay3: sensorDHTData.humidity < 40,
+          relay1: sensorDHTData.humidity < 40,
+          relay3: sensorDHTData.temperature > 20,
           relay4: distance < 15 && distance >= 0,
         }));
       }
@@ -349,7 +349,7 @@ function Dashboard() {
           </SensorCard>
 
           {/* Air Quality Card */}
-          <SensorCard background="linear-gradient(135deg, rgba(155, 89, 182, 0.2), rgba(142, 68, 173, 0.4))">
+          {/* <SensorCard background="linear-gradient(135deg, rgba(155, 89, 182, 0.2), rgba(142, 68, 173, 0.4))">
             <Title>Air Quality</Title>
             <SensorValue>
               <Value color="#9b59b6">{airQuality}</Value>
@@ -358,7 +358,7 @@ function Dashboard() {
             <InfoText>
               {airQuality > 200 ? "Poor" : airQuality > 100 ? "Moderate" : "Good"}
             </InfoText>
-          </SensorCard>
+          </SensorCard> */}
 
           {/* Distance Card */}
           <SensorCard background="linear-gradient(135deg, rgba(46, 204, 113, 0.2), rgba(39, 174, 96, 0.4))">
